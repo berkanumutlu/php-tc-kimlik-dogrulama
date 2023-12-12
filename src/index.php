@@ -42,6 +42,12 @@ require 'config/config.php';
                                     aria-controls="pills-curl" aria-selected="false">cURL
                             </button>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-soap-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-soap" type="button" role="tab"
+                                    aria-controls="pills-soap" aria-selected="false">SOAP
+                            </button>
+                        </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-algorithm" role="tabpanel"
@@ -120,6 +126,37 @@ require 'config/config.php';
                                             echo $item.'<br>';
                                         }
                                         ?>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-soap" role="tabpanel"
+                             aria-labelledby="pills-soap-tab" tabindex="0">
+                            <form action="ajax.php" method="POST" class="soapForm input-group-form">
+                                <input type="hidden" name="verifyType" value="soap">
+                                <?php include 'components/_input_identity_number.html'; ?>
+                                <div class="input-group mb-3">
+                                    <label for="name" class="input-group-text">Name</label>
+                                    <input type="text" name="name" id="name" class="form-control" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="surname" class="input-group-text">Surname</label>
+                                    <input type="text" name="surname" id="surname" class="form-control" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="birthYear" class="input-group-text">Year of Birth</label>
+                                    <input type="number" name="birthYear" id="birthYear" class="form-control" min="1"
+                                           max="9999" value="2023" required>
+                                </div>
+                                <?php include 'components/_button_form_submit.html'; ?>
+                            </form>
+                            <?php include 'components/_alert.html'; ?>
+                            <div class="description">
+                                <pre>
+                                    <code>
+                                        CONFIG<br>
+                                        SOAP EXTENSION: <?= extension_loaded("soap") ? 'true' : 'false' ?><br>
+                                        URL: <?= VERIFY_TYPE_SOAP['URL'] ?>
                                     </code>
                                 </pre>
                             </div>

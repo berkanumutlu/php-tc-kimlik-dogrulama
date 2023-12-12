@@ -240,7 +240,7 @@ class TCKimlik
     }
 
     /**
-     * @return bool
+     * @return bool|array
      */
     public function verify()
     {
@@ -264,6 +264,9 @@ class TCKimlik
             case 'curl':
                 return $this->verifyWithCURL();
                 break;
+            case 'soap':
+                return $this->verifyWithSOAP();
+                break;
         }
         return false;
     }
@@ -271,7 +274,7 @@ class TCKimlik
     /**
      * @return bool
      */
-    public function verifyWithAlgorithm()
+    public function verifyWithAlgorithm(): bool
     {
         $number = $this->getNumber();
         // First Rule
@@ -315,7 +318,7 @@ class TCKimlik
     /**
      * @return array
      */
-    public function prepareCURL()
+    public function prepareCURL(): array
     {
         $response = [];
         $response['url'] = VERIFY_TYPE_CURL['URL'];
@@ -360,7 +363,7 @@ class TCKimlik
     /**
      * @return bool
      */
-    public function verifyWithCURL()
+    public function verifyWithCURL(): bool
     {
         $opts = $this->prepareCURL();
         $ch = curl_init();
@@ -375,5 +378,47 @@ class TCKimlik
         curl_close($ch);
         $TCKimlikNoDogrulaResult = strip_tags($response) == 'true' ? true : false;
         return $TCKimlikNoDogrulaResult;
+    }
+
+    /**
+     * @return array
+     */
+    public function prepareSOAP(): array
+    {
+        return [
+            'url'  => VERIFY_TYPE_SOAP['URL'],
+            'data' => [
+                'TCKimlikNo' => $this->getNumber(),
+                'Ad'         => $this->getName(),
+                'Soyad'      => $this->getSurname(),
+                'DogumYili'  => $this->getBirthYear()
+            ]
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function verifyWithSOAP(): array
+    {
+        $response = ['status' => false];
+        if (!extension_loaded("soap")) {
+            $response ['message'] = 'SOAP extension is not enabled.';
+        } else {
+            try {
+                $opts = $this->prepareSOAP();
+                $client = new SoapClient($opts['url']);
+                $result = $client->TCKimlikNoDogrula($opts['data']);
+                if ($result->TCKimlikNoDogrulaResult) {
+                    $response['status'] = true;
+                    $response['message'] = 'Turkish Identity Number is valid.';
+                } else {
+                    $response['message'] = 'Turkish Identity Number is not valid.';
+                }
+            } catch (Exception $e) {
+                $response ['message'] = $e->getMessage();
+            }
+        }
+        return $response;
     }
 }

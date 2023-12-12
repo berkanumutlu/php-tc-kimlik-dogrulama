@@ -1,8 +1,8 @@
 <?php
 /**
- * Algorithm, cURL
+ * Algorithm, cURL, SOAP
  */
-define('VERIFY_TYPE_LIST', ['algorithm', 'curl']);
+define('VERIFY_TYPE_LIST', ['algorithm', 'curl', 'soap']);
 define('VERIFY_TYPE', 'algorithm');
 /**
  * VERIFY_TYPE cURL Settings
@@ -30,4 +30,10 @@ define('VERIFY_TYPE_CURL', [
             ]
         ]
     ]
+]);
+/**
+ * VERIFY_TYPE SOAP Settings
+ */
+define('VERIFY_TYPE_SOAP', [
+    'URL' => 'https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx?WSDL'
 ]);
