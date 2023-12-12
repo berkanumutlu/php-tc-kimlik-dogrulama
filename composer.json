@@ -2,7 +2,18 @@
   "name": "berkanumutlu/php-tc-kimlik-dogrulama",
   "type": "project",
   "description": "PHP Turkish Identity Verification by Berkan Ümütlü",
-  "keywords": ["php", "tc kimlik doğrulama", "turkish identity verification"],
+  "keywords": [
+    "tckimlik",
+    "tckimlikno",
+    "tcno",
+    "tckn",
+    "nvi.gov.tr",
+    "php",
+    "tc kimlik doğrulama",
+    "php tc kimlik doğrulama",
+    "turkish identity verification",
+    "php turkish identity verification"
+  ],
   "license": "MIT",
   "authors": [
     {
