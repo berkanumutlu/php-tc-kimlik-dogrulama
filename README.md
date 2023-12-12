@@ -1,6 +1,6 @@
-<div align="center">
+<div align="center" style="margin-bottom:16px;">
     <a href="https://php.net">
-        <img alt="PHP" src="https://www.php.net/images/logos/new-php-logo.svg" width="150" style="margin-bottom:16px;">
+        <img alt="PHP" src="https://www.php.net/images/logos/new-php-logo.svg" width="150">
     </a>
 </div>
 
@@ -15,17 +15,18 @@
 
 ##### TR
 
-Bu projede T.C. Kimlik numarasını kendi algoritmasına göre test edebilirsiniz.
+Bu projede T.C. Kimlik numarasını kendi algoritmasına göre veya nvi.gov.tr adresine cURL isteği ile test edebilirsiniz. 
 Daha fazla bilgi için [tıklayın](https://tr.wikipedia.org/wiki/T.C._Kimlik_Numaras%C4%B1 "T.C. Kimlik Numarası Hakkında Daha Fazla Bilgi").
 
 ##### EN
 
-Turkish Identification Number (Turkish: Türkiye Cumhuriyeti Kimlik Numarası or abbreviated as T.C. Kimlik No.) is a unique personal identification number that is assigned to every citizen of Turkey. In this project, you can test the Turkish Identity Number according to its own algorithm.
+Turkish Identification Number (Turkish: Türkiye Cumhuriyeti Kimlik Numarası or abbreviated as T.C. Kimlik No.) is a unique personal identification number that is assigned to every citizen of Turkey. In this project, you can test the Turkish Identity Number according to its own algorithm or by making a cURL request to nvi.gov.tr. 
 [Click](https://en.wikipedia.org/wiki/Turkish_Identification_Number "More Information About Turkish Identification Number") for more information.
 
 ## Screenshots
 
-![screenshot](screenshot.png)
+![screenshotAlgorithm](screenshots/screenshot01.png)
+![screenshotCURL](screenshots/screenshot02.png)
 
 ## License
 

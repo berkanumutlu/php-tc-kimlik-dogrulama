@@ -46,7 +46,7 @@ require 'config/config.php';
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-algorithm" role="tabpanel"
                              aria-labelledby="pills-algorithm-tab" tabindex="0">
-                            <form action="ajax.php" method="POST" class="algorithmForm">
+                            <form action="ajax.php" method="POST" class="algorithmForm input-group-form">
                                 <input type="hidden" name="verifyType" value="algorithm">
                                 <?php include 'components/_input_identity_number.html'; ?>
                                 <?php include 'components/_button_form_submit.html'; ?>
