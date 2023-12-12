@@ -1,7 +1,6 @@
 {
   "name": "berkanumutlu/php-tc-kimlik-dogrulama",
   "type": "project",
-  "version": "1.0.1",
   "description": "PHP Turkish Identity Verification by Berkan Ümütlü",
   "keywords": [
     "tckimlik",
