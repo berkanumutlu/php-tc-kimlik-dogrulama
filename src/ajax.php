@@ -20,11 +20,16 @@ if (!empty($_POST['verifyTC'])) {
         if (isset($_POST['birthYear'])) {
             $tc->setBirthYear(filter_var($_POST['birthYear'], FILTER_VALIDATE_INT));
         }
-        if ($tc->verify()) {
-            $response['status'] = true;
-            $response['message'] = 'Turkish Identity Number is valid.';
+        $verify = $tc->verify();
+        if (is_bool($verify)) {
+            if ($verify) {
+                $response['status'] = true;
+                $response['message'] = 'Turkish Identity Number is valid.';
+            } else {
+                $response['message'] = 'Turkish Identity Number is not valid.';
+            }
         } else {
-            $response['message'] = 'Turkish Identity Number is not valid.';
+            $response = $verify;
         }
     } catch (\Exception $e) {
         $response['message'] = $e->getMessage();
