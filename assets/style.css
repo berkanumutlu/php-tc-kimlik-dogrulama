@@ -20,6 +20,10 @@ a:hover {
     color: var(--color-primary-hover);
 }
 
+input:focus {
+    box-shadow: none !important;
+}
+
 .btn-primary {
     --bs-btn-color: var(--color-white);
     --bs-btn-bg: var(--color-primary);
@@ -43,10 +47,15 @@ a:hover {
 }
 
 .description {
-    padding: 16px;
+    padding: 8px;
     color: var(--color-text-primary);
     background-color: var(--color-bg-orange-light);
     border-radius: 4px;
+}
+
+.description ol.list-group li.list-group-item {
+    padding: 8px 0;
+    background: transparent;
 }
 
 .alert-message {
@@ -55,4 +64,10 @@ a:hover {
 
 .alert-message .alert svg {
     margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+    .description {
+        padding: 12px;
+    }
 }
