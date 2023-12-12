@@ -5,12 +5,26 @@ if (!empty($_POST['verifyTC'])) {
     $response = ['status' => false];
     try {
         $tc = new TCKimlik();
-        $tc->setNumber(isset($_POST['tc']) ? $_POST['tc'] : '');
+        if (isset($_POST['verifyType'])) {
+            $tc->setVerifyType(mb_strtolower($_POST['verifyType']));
+        }
+        if (isset($_POST['tc'])) {
+            $tc->setNumber($_POST['tc']);
+        }
+        if (isset($_POST['name'])) {
+            $tc->setName(htmlspecialchars(trim($_POST['name'])));
+        }
+        if (isset($_POST['surname'])) {
+            $tc->setSurname(htmlspecialchars(trim($_POST['surname'])));
+        }
+        if (isset($_POST['birthYear'])) {
+            $tc->setBirthYear(filter_var($_POST['birthYear'], FILTER_VALIDATE_INT));
+        }
         if ($tc->verify()) {
             $response['status'] = true;
-            $response['message'] = 'T.C. Identity Number is valid.';
+            $response['message'] = 'Turkish Identity Number is valid.';
         } else {
-            $response['message'] = 'T.C. Identity Number is not valid.';
+            $response['message'] = 'Turkish Identity Number is not valid.';
         }
     } catch (\Exception $e) {
         $response['message'] = $e->getMessage();

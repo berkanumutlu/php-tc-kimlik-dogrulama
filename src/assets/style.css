@@ -24,6 +24,14 @@ input:focus {
     box-shadow: none !important;
 }
 
+pre {
+    margin-bottom: 0;
+}
+
+pre code {
+    white-space: pre-line;
+}
+
 .btn-primary {
     --bs-btn-color: var(--color-white);
     --bs-btn-bg: var(--color-primary);
@@ -44,6 +52,22 @@ input:focus {
 .card .card-header {
     background-color: #D0021A;
     color: #f3f3f3;
+}
+
+.card .card-body .nav.nav-tabs .nav-link {
+    color: var(--color-text-primary);
+}
+
+.card .card-body .nav.nav-tabs .nav-link.active {
+    color: var(--color-primary);
+}
+
+.input-group-form .input-group .input-group-text {
+    flex: 3;
+}
+
+.input-group-form .input-group .form-control {
+    flex: 4;
 }
 
 .description {
@@ -67,6 +91,10 @@ input:focus {
 }
 
 @media (min-width: 768px) {
+    .input-group-form .input-group .input-group-text {
+        flex: 1;
+    }
+
     .description {
         padding: 12px;
     }
