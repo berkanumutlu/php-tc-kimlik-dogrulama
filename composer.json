@@ -1,0 +1,23 @@
+{
+  "name": "berkanumutlu/php-tc-kimlik-dogrulama",
+  "type": "project",
+  "description": "PHP Turkish Identity Verification by Berkan Ümütlü",
+  "keywords": ["php", "tc kimlik doğrulama", "turkish identity verification"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Berkan Ümütlü",
+      "role": "Developer"
+    }
+  ],
+  "homepage": "https://github.com/berkanumutlu/php-tc-kimlik-dogrulama",
+  "support": {
+    "issues": "https://github.com/berkanumutlu/php-tc-kimlik-dogrulama/issues",
+    "security": "https://github.com/berkanumutlu/php-tc-kimlik-dogrulama/security/policy"
+  },
+  "require": {
+    "php": ">=5.6",
+    "ext-json": "*",
+    "ext-ctype": "*"
+  }
+}
